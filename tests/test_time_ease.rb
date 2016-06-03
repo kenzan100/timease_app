@@ -1,3 +1,5 @@
+require_relative "../time_easer"
+require_relative "../adapters/mite"
 require "minitest/autorun"
 
 class TestTimeEase < Minitest::Test
@@ -22,7 +24,8 @@ class TestTimeEase < Minitest::Test
         time_entry: {
           date_at:    "2016-12-25",
           minutes:    90,
-          project_id: 123
+          project_id: 123,
+          service_id: nil
         }
       }
     ]
