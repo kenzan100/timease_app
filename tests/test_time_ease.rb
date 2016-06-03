@@ -8,16 +8,22 @@ class TestTimeEase < Minitest::Test
     @parser = TimeEase::Parser.new(input)
   end
 
+  def test_post
+    parsed = @parser.parse
+    TimeEase::Adapter::Mite.new(parsed).post
+  end
+
   def test_parse
     parsed = @parser.parse
-    mite_body = TimeEase::Adapter::Mite.new(parsed).body
+    mite_body = TimeEase::Adapter::Mite.new(parsed).request_bodies
     expected = [
       {
         time_entry: {
           date_at:    "2016-12-25",
           minutes:    270,
           project_id: 234,
-          service_id: 1
+          service_id: 1,
+          note: "RS Sprint6"
         }
       },
       {
@@ -25,7 +31,8 @@ class TestTimeEase < Minitest::Test
           date_at:    "2016-12-25",
           minutes:    90,
           project_id: 123,
-          service_id: nil
+          service_id: nil,
+          note: "GoodTravel"
         }
       }
     ]
