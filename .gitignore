@@ -16,4 +16,4 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-.mite_mapping.yml
+mite_mapping.yml

@@ -8,8 +8,9 @@ class EntriesController < ApplicationController
     unless input.valid?
       head 422 and return
     end
-    parsed = TimeEase::Parser.new(input).parse
-    render text: parsed.to_json
+    parsed_entries = TimeEase::Parser.new(input).parse
+    TimeEntry.update_or_create_by_date_with_multiple!(parsed_entries)
+    @entries = TimeEntry.ordered
   end
 
   private
