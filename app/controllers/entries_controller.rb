@@ -4,5 +4,17 @@ class EntriesController < ApplicationController
   end
 
   def create
+    input   = TimeEase::Input.new(*entry_params.values)
+    unless input.valid?
+      head 422 and return
+    end
+    parsed = TimeEase::Parser.new(input).parse
+    render text: parsed.to_json
+  end
+
+  private
+
+  def entry_params
+    params.permit(:start_time, :end_time, :date, :things_done)
   end
 end

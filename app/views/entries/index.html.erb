@@ -1,12 +1,12 @@
 <% @dates.each do |date| %>
   <div>
-    <%= form_tag entries_path do %>
+    <%= form_tag entries_path, remote: true do %>
       <%= content_tag :span, l(date) %>
       <%= hidden_field_tag :date, date %>
       <%= text_field_tag :start_time %>
       ~
       <%= text_field_tag :end_time %>
-      <%= text_field_tag :things_you_did %>
+      <%= text_field_tag :things_done %>
     <% end %>
   </div>
 <% end %>
