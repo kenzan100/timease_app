@@ -13,4 +13,8 @@ class TimeEntry < ApplicationRecord
   def info
     [id, l(start_at), l(end_at), pj_name, task_name]
   end
+
+  def to_output
+    TimeEase::Output.new(start_at, end_at, exact, pj_name, task_name)
+  end
 end

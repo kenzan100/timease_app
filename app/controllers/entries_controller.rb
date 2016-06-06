@@ -1,6 +1,9 @@
 class EntriesController < ApplicationController
   def index
-    @dates = (7.days.ago.to_date..Date.today)
+    dates_range = (7.days.ago.to_date..Date.today)
+    entries = TimeEntry.where(date: dates_range).map { |e| e.to_output }
+    inputs = TimeEase::RevParser.new(entries).parse
+    @dates = dates_range.to_a.map { |date| [date, inputs.detect { |i| i.date == date.strftime }] }
   end
 
   def create
