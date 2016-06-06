@@ -47,5 +47,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# For TimeEase to-be-gemfied
-gem 'chronic'
+gem 'timease', git: 'https://github.com/kenzan100/timease'
