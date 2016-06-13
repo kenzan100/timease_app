@@ -6,7 +6,7 @@
       <%= text_field_tag :start_time, input.try(:start_time) %>
       ~
       <%= text_field_tag :end_time, input.try(:end_time) %>
-      <%= text_field_tag :things_done, input.try(:dones) %>
+      <%= text_field_tag :things_done, input.try(:dones).try(:join, ", ") %>
     <% end %>
   </div>
 <% end %>
