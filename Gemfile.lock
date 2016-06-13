@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/kenzan100/timease
-  revision: b3e5591953f2ee52828db577bc53b9245760ca37
+  revision: ba4e9dc2c6d1f3fd9094086b6d34e5b6f96048c0
   specs:
     timease (0.1.0)
       chronic
@@ -196,4 +196,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.12.3
+   1.12.5
