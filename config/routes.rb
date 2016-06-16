@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "entries#index"
-  resources :entries, only: [:index, :create]
+  root to: "raw_entries#index"
+  resources :raw_entries
   resources :sessions
 end

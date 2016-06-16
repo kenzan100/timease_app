@@ -1,0 +1,15 @@
+<% @raw_entries.each do |raw_entry| %>
+  <div>
+    <%= form_for raw_entry, remote: true do |f| %>
+      <%= content_tag :span, l(f.object.date) %>
+      <%= f.hidden_field :date %>
+      <%= f.text_field :start %>
+      ~
+      <%= f.text_field :end %>
+      <%= f.text_field :things, style: "width: 30%" %>
+    <% end %>
+  </div>
+<% end %>
+
+<div id="entries">
+</div>

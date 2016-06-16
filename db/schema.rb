@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605155318) do
+ActiveRecord::Schema.define(version: 20160616163523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "raw_entries", force: :cascade do |t|
+    t.date   "date",                null: false
+    t.string "start",  default: "", null: false
+    t.string "end",    default: "", null: false
+    t.text   "things", default: "", null: false
+    t.index ["date"], name: "index_raw_entries_on_date", using: :btree
+  end
 
   create_table "time_entries", force: :cascade do |t|
     t.datetime "start_at",                   null: false
